@@ -2,6 +2,7 @@
 'use strict'
 import fetch from 'node-fetch';
 import * as Struc from './struct.js';
+import * as c from './constants.js';
 import Asset from './assets/Asset.js';
 import Page from './assets/Page.js';
 import RequestService from './RequestService.js';
@@ -10,10 +11,13 @@ import Auth from './auth.js';
 
 console.log('running');
 //import dotenv from 'dotenv'
+console.log(c.TYPES.PAGE);
 
-console.log(process.env.CASC_APIKEY);
+var testAsset = Asset.getAsset( new RequestService( 'https://grayson.cascadecms.com/api/v1/', Auth.getInstance() ), "page", "test-page", "grayson.edu");
 
-var test = new Page(new RequestService('page', 'https://grayson.cascadecms.com/api/v1/', Auth.getInstance()),{
+//console.log(testAsset)
+
+/*var test = new Page(new RequestService('https://grayson.cascadecms.com/api/v1/', Auth.getInstance()),{
   path: {
     siteName:"grayson.edu",
     path:"test-page"
@@ -31,7 +35,7 @@ export default class Cascade {
    // this.requestService = new RequestService()
   //  this.auth = {}
   }
-
+*/
 /*  read(identifier: Identifier): json {
   return this.requestService.read(identifier);
   } */
@@ -106,4 +110,3 @@ export default class Cascade {
 
 
 
-}

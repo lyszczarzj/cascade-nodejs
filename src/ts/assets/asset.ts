@@ -3,6 +3,8 @@ import * as Struct from "../struct.js";
 import RequestService from "../RequestService.js";
 import * as c from "../constants.js";
 import ucwords from "../ucwords.js";
+import Page from "./Page.js";
+import * as Maps from "../maps.js"
 
 export default class Asset {
     #id: string;
@@ -139,7 +141,7 @@ export default class Asset {
             throw new Error('No Such Type' + type + 'Found');
         }
 
-        let className = c.typeMappingArray.get(type) 
+        let className = Maps.typeMappingArray.get(type) 
 
         try {
             return new className(service, service.createId(type, idPath, siteName))

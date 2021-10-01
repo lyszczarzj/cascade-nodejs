@@ -22,7 +22,7 @@ var _RequestService_types, _RequestService_properties, _RequestService_url, _Req
 import fetch from 'node-fetch';
 import * as c from "./constants.js";
 export default class RequestService {
-    constructor(type, url, auth, context = null) {
+    constructor(url, auth, context = null) {
         _RequestService_types.set(this, void 0);
         _RequestService_properties.set(this, [
             c.TYPES.ASSETFACTORY,

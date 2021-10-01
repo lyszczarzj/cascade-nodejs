@@ -20,6 +20,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 };
 var _Asset_id, _Asset_path, _Asset_siteName, _Asset_siteId, _Asset_service, _Asset_identifier, _Asset_type, _Asset_propertyName, _Asset_property, _Asset_name, _Asset_json;
 import * as c from "../constants.js";
+import * as Maps from "../maps.js";
 export default class Asset {
     constructor(service, identifier) {
         _Asset_id.set(this, void 0);
@@ -133,7 +134,7 @@ export default class Asset {
         if (!exists) {
             throw new Error('No Such Type' + type + 'Found');
         }
-        let className = c.typeMappingArray.get(type);
+        let className = Maps.typeMappingArray.get(type);
         try {
             return new className(service, service.createId(type, idPath, siteName));
         }

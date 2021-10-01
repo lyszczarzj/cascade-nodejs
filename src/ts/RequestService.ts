@@ -66,7 +66,7 @@ export default class RequestService {
     #audits: string;
     #commands: Array<string>;
 
-    constructor(type: string, url: string, auth: Auth, context: any = null) {
+    constructor(url: string, auth: Auth, context: any = null) {
         this.#url = url;
         this.#auth = auth;
         this.#message = "";

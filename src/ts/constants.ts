@@ -1,13 +1,6 @@
 import Asset from "./assets/Asset.js";
 import Page from "./assets/Page.js"
-import RequestService from "./RequestService.js"
 
-class Miranda {
-    num: number;
-    constructor(x: number) {
-        this.num = x
-    }
-}
 
 export const METADATA = {
     AUTHOR: "author",

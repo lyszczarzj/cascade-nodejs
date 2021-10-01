@@ -6,12 +6,12 @@ import Page from "./Page.js";
 
 
 export default class DublinAwareAsset extends FolderContainedAsset {
-    #metadataSet: MetadataSet
+   // #metadataSet: MetadataSet
     constructor(service: RequestService, identifier: Struct.Identifier) {
         super(service,identifier);
-        if ( this.getType() != Page.TYPE ) {
+       /* if ( this.getType() != Page.TYPE ) {
             this.#metadataSet = new MetadataSet(service,service.createId(MetadataSet.TYPE,this.getProperty().metadataSetId));
-        }
+        } */
     }
 
     //more code
