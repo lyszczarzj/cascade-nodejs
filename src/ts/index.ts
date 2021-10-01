@@ -45,7 +45,7 @@ export default class Cascade {
         const response = fetch(URL + 'create', {
         method: "POST",
         headers:{ 
-          Authorization: "Bearer 7354e10f-730e-4f24-b836-5b67faa60527"
+          Authorization: "Bearer" 
         },
         body: JSON.stringify({asset: asset})
         }) 
@@ -65,7 +65,7 @@ export default class Cascade {
       const response = fetch(URL + 'read', {
         method: "POST",
         headers:{ 
-          Authorization: "Bearer 7354e10f-730e-4f24-b836-5b67faa60527"
+          Authorization: "Bearer"
         },
         body: JSON.stringify({
           identifier: {

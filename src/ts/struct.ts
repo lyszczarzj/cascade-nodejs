@@ -1,4 +1,5 @@
 import pathClass from "./properties/Path.js";
+import * as c from "./constants.js";
 
 export interface path {
     path: string;
@@ -23,6 +24,16 @@ export interface Request {
 
 export interface Identifier extends Child {
 
+}
+
+export interface dynamicMetadataFieldDefinition {
+    name: string;
+    label: string;
+    fieldType: string;
+    required: boolean;
+    visibility: string;
+    possibleValues: Array<string>;
+    helpText: string;
 }
 
 
