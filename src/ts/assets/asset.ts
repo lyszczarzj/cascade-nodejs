@@ -4,9 +4,11 @@ import RequestService from "../RequestService.js";
 import * as c from "../constants.js";
 import ucwords from "../ucwords.js";
 import Page from "./Page.js";
-import * as Maps from "../maps.js"
+import Factory from "./Factory.js";
 
-export default class Asset {
+
+
+export default abstract class Asset {
     #id: string;
     #path: string;
     #siteName: string;
@@ -18,6 +20,7 @@ export default class Asset {
     #property: any;
     #name: string;
     #json: string;
+
 
     constructor(service: RequestService, identifier: Struct.Identifier) {
         if (service == null) {
@@ -72,7 +75,7 @@ export default class Asset {
         Property Name: ${this.#propertyName}
         Type: ${this.#type}
         `)
-        
+
         return this
     }
 
@@ -88,7 +91,7 @@ export default class Asset {
         return this.#identifier;
     }
 
-    getJson() : string {
+    getJson(): string {
         return this.#json;
     }
 
@@ -118,43 +121,32 @@ export default class Asset {
 
     async reloadProperty(): Promise<Asset> {
         if (typeof this.#identifier.path.path == undefined) {
-            this.#identifier.path = {path: ""}
+            this.#identifier.path = { path: "" }
         }
-        
+
         this.#property = await this.#service.retrieve(this.#identifier)
         return this
     }
 
-    update (params: Map<string, string>) {
+    update(params: Map<string, string>) {
         Asset.staticUpdateData(this, params);
         return this;
     }
 
-    updateData(params:Map<string, string>) {
+    updateData(params: Map<string, string>) {
         Asset.staticUpdateData(this, params)
         return this;
     }
 
     static getAsset(service: RequestService, type: string, idPath: string, siteName: string = null): Asset {
-        var exists = Object.values(c.TYPES).includes(type)
-        if (!exists) {
-            throw new Error('No Such Type' + type + 'Found');
-        }
-
-        let className = Maps.typeMappingArray.get(type) 
-
-        try {
-            return new className(service, service.createId(type, idPath, siteName))
-        } catch(e) {
-            throw new Error(`Null Asset: ${idPath}`)
-        }
+        return Factory.getAsset(service, type, idPath, siteName)
     }
 
     static staticUpdateData(a: Asset, params: Map<string, string>): Asset {
         //figure out what to do with this later
         return a;
     }
-  
+
 
 
 

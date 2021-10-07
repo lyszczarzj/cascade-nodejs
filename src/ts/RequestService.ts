@@ -1,4 +1,3 @@
-import { BarControllerDatasetOptions } from "chart.js";
 import Identifier from "./properties/Identifier";
 import * as Struct from "./struct";
 import fetch from 'node-fetch';

@@ -1,5 +1,7 @@
 #! /usr/bin/env node
 'use strict'
+import './assets/factory.js';
+import Factory from './assets/factory.js';
 import fetch from 'node-fetch';
 import * as Struc from './struct.js';
 import * as c from './constants.js';
@@ -9,13 +11,23 @@ import RequestService from './RequestService.js';
 import Auth from './auth.js';
 
 
+
+
 console.log('running');
 //import dotenv from 'dotenv'
-console.log(c.TYPES.PAGE);
+//console.log(c.TYPES.PAGE);
 
-var testAsset = Asset.getAsset( new RequestService( 'https://grayson.cascadecms.com/api/v1/', Auth.getInstance() ), "page", "test-page", "grayson.edu");
+var testAsset = Factory.getAsset( new RequestService( 'https://grayson.cascadecms.com/api/v1/', Auth.getInstance() ), "page", "test-page", "grayson.edu");
+/*
+var testAsset = new Page(new RequestService('https://grayson.cascadecms.com/api/v1/', Auth.getInstance()),{
+  path: {
+    siteName:"grayson.edu",
+    path:"test-page"
+  },
+  type: "page"
+})*/
 
-//console.log(testAsset)
+console.log(testAsset);
 
 /*var test = new Page(new RequestService('https://grayson.cascadecms.com/api/v1/', Auth.getInstance()),{
   path: {

@@ -14,11 +14,11 @@ import * as fs from 'fs';
 export default class Auth {
     constructor() {
         _Auth_apiToken.set(this, void 0);
-        if (!fs.readFileSync('../config.json', 'utf8')) {
+        if (!fs.readFileSync('./config.json', 'utf8')) {
             throw new Error("Cannot read auth file!!!!");
         }
         else {
-            let json = JSON.parse(fs.readFileSync('../config.json', 'utf8'));
+            let json = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
             __classPrivateFieldSet(this, _Auth_apiToken, json.authorization.apiKey, "f");
         }
     }

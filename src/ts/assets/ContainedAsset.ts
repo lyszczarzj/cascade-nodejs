@@ -3,6 +3,7 @@ import * as Struct from "../struct.js";
 import Asset from "./asset.js";
 import Container from "./Container.js";
 import * as c from "../constants.js";
+import Factory from "./Factory.js";
 
 export default class ContainedAsset extends Asset {
     constructor(service: RequestService, identifier: Struct.Identifier) {
@@ -22,7 +23,7 @@ export default class ContainedAsset extends Asset {
             let parentId = this.getParentContainerId();
             let parentType = c.parentTypeMap[this.getType()];
 
-            return Asset.getAsset(this.getService(), parentType, parentId);
+            return Factory.getAsset(this.getService(), parentType, parentId);
         }
 
         return null;
@@ -92,5 +93,6 @@ export default class ContainedAsset extends Asset {
     isInContainer(container: Container): boolean {
         return this.isDescendantOf(container);
     }
+    
 
 }

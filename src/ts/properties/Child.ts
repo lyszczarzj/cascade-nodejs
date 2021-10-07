@@ -1,15 +1,17 @@
-import Property from "./Property.d";
+import Property from "./Property.js";
 import Path from "./Path.js"
 import * as Struct from "../struct.js";
 import RequestService from "../RequestService.js";
 import Asset from "../assets/Asset.js";
+import Factory from "../assets/Factory.js";
 
-export default class Child implements Property {
+export default class Child extends Property {
     #id: string
     #path: Path
     #type: string
     #recycled: boolean
     constructor(json: Struct.Child, service: RequestService = null, data1: any = null, data2: any = null, data3: any = null) {
+        super(json, service, data1, data2, data3)
         if (typeof json != undefined) {
             if (typeof json.id != undefined) {
                 this.#id = json.id;
@@ -33,21 +35,16 @@ export default class Child implements Property {
         ID: ${this.#id}`)
         return this;
     }
-    /**
-     * Returns parent asset
-     * 
-     * Not currently implemented
-     * 
-     */
+  
     getAsset(service: RequestService): Asset {
         if (typeof service == null) {
             throw new Error('No Service');
         }
 
         if (typeof this.#id != undefined) {
-            return Asset.getAsset(service, this.#type, this.#id);
+            return Factory.getAsset(service, this.#type, this.#id);
         } else {
-            return Asset.getAsset(service, this.#type, this.#path.getPath(), this.#path.getSiteName());
+            return Factory.getAsset(service, this.#type, this.#path.getPath(), this.#path.getSiteName());
         }
     }
 

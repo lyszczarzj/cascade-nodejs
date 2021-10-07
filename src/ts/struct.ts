@@ -36,4 +36,18 @@ export interface dynamicMetadataFieldDefinition {
     helpText: string;
 }
 
+export interface metadata {
+    author: string,
+    displayName: string,
+    endDate: string,
+    keywords: string[],
+    metaDescription: string,
+    reviewDate: string,
+    startDate: string,
+    summary: string,
+    teaser: string,
+    title: string,
+    dynamicFields: any
+}
+
 

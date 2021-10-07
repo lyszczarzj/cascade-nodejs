@@ -1,3 +1,5 @@
-export default interface Property {
+/*export default interface Property {
     toObject(): any
 }
+
+*/

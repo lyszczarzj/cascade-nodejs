@@ -10,8 +10,10 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _Path_path, _Path_siteId, _Path_siteName;
-export default class Path {
+import Property from "./Property.js";
+export default class Path extends Property {
     constructor(json, service = null, data1 = null, data2 = null, data3 = null) {
+        super(json, service, data1, data2, data3);
         _Path_path.set(this, void 0);
         _Path_siteId.set(this, void 0);
         _Path_siteName.set(this, void 0);

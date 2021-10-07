@@ -5,5 +5,5 @@ export default class Page extends Linkable {
         super(service, identifier);
     }
 }
-Page.TYPE = 'page';
+Page.TYPE = c.TYPES.PAGE;
 //# sourceMappingURL=Page.js.map

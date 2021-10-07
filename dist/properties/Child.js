@@ -10,10 +10,12 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _Child_id, _Child_path, _Child_type, _Child_recycled;
+import Property from "./Property.js";
 import Path from "./Path.js";
-import Asset from "../assets/Asset.js";
-export default class Child {
+import Factory from "../assets/Factory.js";
+export default class Child extends Property {
     constructor(json, service = null, data1 = null, data2 = null, data3 = null) {
+        super(json, service, data1, data2, data3);
         _Child_id.set(this, void 0);
         _Child_path.set(this, void 0);
         _Child_type.set(this, void 0);
@@ -47,10 +49,10 @@ export default class Child {
             throw new Error('No Service');
         }
         if (typeof __classPrivateFieldGet(this, _Child_id, "f") != undefined) {
-            return Asset.getAsset(service, __classPrivateFieldGet(this, _Child_type, "f"), __classPrivateFieldGet(this, _Child_id, "f"));
+            return Factory.getAsset(service, __classPrivateFieldGet(this, _Child_type, "f"), __classPrivateFieldGet(this, _Child_id, "f"));
         }
         else {
-            return Asset.getAsset(service, __classPrivateFieldGet(this, _Child_type, "f"), __classPrivateFieldGet(this, _Child_path, "f").getPath(), __classPrivateFieldGet(this, _Child_path, "f").getSiteName());
+            return Factory.getAsset(service, __classPrivateFieldGet(this, _Child_type, "f"), __classPrivateFieldGet(this, _Child_path, "f").getPath(), __classPrivateFieldGet(this, _Child_path, "f").getSiteName());
         }
     }
     getId() {

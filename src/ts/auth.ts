@@ -5,10 +5,10 @@ export default class Auth {
     static #instance?: Auth;
 
     private constructor() {
-        if (!fs.readFileSync('../config.json', 'utf8')) {
+        if (!fs.readFileSync('./config.json', 'utf8')) {
             throw new Error ("Cannot read auth file!!!!");
         } else {
-            let json = JSON.parse(fs.readFileSync('../config.json', 'utf8'));
+            let json = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
             this.#apiToken = json.authorization.apiKey;
         }
         

@@ -19,8 +19,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _Asset_id, _Asset_path, _Asset_siteName, _Asset_siteId, _Asset_service, _Asset_identifier, _Asset_type, _Asset_propertyName, _Asset_property, _Asset_name, _Asset_json;
-import * as c from "../constants.js";
-import * as Maps from "../maps.js";
+import Factory from "./Factory.js";
 export default class Asset {
     constructor(service, identifier) {
         _Asset_id.set(this, void 0);
@@ -130,17 +129,7 @@ export default class Asset {
         return this;
     }
     static getAsset(service, type, idPath, siteName = null) {
-        var exists = Object.values(c.TYPES).includes(type);
-        if (!exists) {
-            throw new Error('No Such Type' + type + 'Found');
-        }
-        let className = Maps.typeMappingArray.get(type);
-        try {
-            return new className(service, service.createId(type, idPath, siteName));
-        }
-        catch (e) {
-            throw new Error(`Null Asset: ${idPath}`);
-        }
+        return Factory.getAsset(service, type, idPath, siteName);
     }
     static staticUpdateData(a, params) {
         return a;

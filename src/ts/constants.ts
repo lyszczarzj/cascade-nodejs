@@ -1,7 +1,3 @@
-import Asset from "./assets/Asset.js";
-import Page from "./assets/Page.js"
-
-
 export const METADATA = {
     AUTHOR: "author",
     DISPLAY_NAME: "displayName",
@@ -461,57 +457,6 @@ export const propertyTypeMap = {
 };
 
 
-export const typeMappingArray = new Map([  
-    [TYPES.ASSETFACTORY, Asset],
-    [TYPES.ASSETFACTORYCONTAINER, Asset],
-    [TYPES.CLOUDTRANSPORT, Asset],
-    [TYPES.CONNECTORCONTAINER, Asset],
-    [TYPES.CONTENTTYPE, Asset],
-    [TYPES.CONTENTTYPECONTAINER, Asset],
-    [TYPES.DATADEFINITION, Asset],
-    [TYPES.DATADEFINITIONCONTAINER, Asset],
-    [TYPES.DESTINATION, Asset],
-    [TYPES.FACEBOOKCONNECTOR, Asset],
-    [TYPES.FEEDBLOCK, Asset],
-    [TYPES.FILE, Asset],
-    [TYPES.FOLDER, Asset],
-    [TYPES.GOOGLEANALYTICSCONNECTOR, Asset],
-    [TYPES.GROUP, Asset],
-    [TYPES.INDEXBLOCK, Asset],
-    [TYPES.METADATASET, Asset],
-    [TYPES.METADATASETCONTAINER, Asset],
-    [TYPES.PAGE, Page],
-    [TYPES.PAGECONFIGURATIONSET, Asset],
-    [TYPES.PAGECONFIGURATIONSETCONTAINER, Asset],
-    [TYPES.PUBLISHSET, Asset],
-    [TYPES.PUBLISHSETCONTAINER, Asset],
-    [TYPES.REFERENCE, Asset],
-    [TYPES.ROLE, Asset],
-    [TYPES.SCRIPTFORMAT, Asset],
-    [TYPES.SHAREDFIELD, Asset],
-    [TYPES.SHAREDFIELDCONTAINER, Asset],
-    [TYPES.SITE, Asset],
-    [TYPES.SITEDESTINATIONCONTAINER, Asset],
-    [TYPES.SYMLINK, Asset],
-    [TYPES.TEMPLATE, Asset],
-    [TYPES.TEXTBLOCK, Asset],
-    [TYPES.TRANSPORTCLOUD, Asset],
-    [TYPES.TRANSPORTDB, Asset],
-    [TYPES.TRANSPORTFS, Asset],
-    [TYPES.TRANSPORTFTP, Asset],
-    [TYPES.TRANSPORTCONTAINER, Asset],
-    [TYPES.TWITTERCONNECTOR, Asset],
-    [TYPES.USER, Asset],
-    [TYPES.WORDPRESSCONNECTOR, Asset],
-    [TYPES.WORKFLOWDEFINITION, Asset],
-    [TYPES.WORKFLOWDEFINITIONCONTAINER, Asset],
-    [TYPES.WORKFLOWEMAIL, Asset],
-    [TYPES.WORKFLOWEMAILCONTAINER, Asset],
-    [TYPES.XHTMLDATADEFINITIONBLOCK, Asset],
-    [TYPES.XMLBLOCK, Asset],
-    [TYPES.XSLTFORMAT, Asset]
-])
-
 export const parentTypeMap = {
     [TYPES.ASSETFACTORY]: TYPES.ASSETFACTORYCONTAINER,
     [TYPES.ASSETFACTORYCONTAINER]: TYPES.ASSETFACTORYCONTAINER,
@@ -556,6 +501,19 @@ export const parentTypeMap = {
     [TYPES.XHTMLDATADEFINITIONBLOCK]: TYPES.FOLDER,
     [TYPES.XMLBLOCK]: TYPES.FOLDER,
     [TYPES.XSLTFORMAT]: TYPES.FOLDER
+}
+export class VisibilityValues {
+    static isVisibility(value: string) {
+        return value == TYPES.VISIBLE || value == TYPES.INLINE || value == TYPES.FOLDERCONTROLLED;
+    }
+}
+export class BooleanValues {
+    static isBoolean(value: any): boolean {
+        return value === true || value === false
+    }
+    static isBool (value: boolean) {
+        return value === true || value === false;
+    }
 }
 
 

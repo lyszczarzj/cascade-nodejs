@@ -1,5 +1,6 @@
 import Asset from "./asset.js";
 import * as c from "../constants.js";
+import Factory from "./Factory.js";
 export default class ContainedAsset extends Asset {
     constructor(service, identifier) {
         super(service, identifier);
@@ -14,7 +15,7 @@ export default class ContainedAsset extends Asset {
         if (this.getParentContainerId()) {
             let parentId = this.getParentContainerId();
             let parentType = c.parentTypeMap[this.getType()];
-            return Asset.getAsset(this.getService(), parentType, parentId);
+            return Factory.getAsset(this.getService(), parentType, parentId);
         }
         return null;
     }
