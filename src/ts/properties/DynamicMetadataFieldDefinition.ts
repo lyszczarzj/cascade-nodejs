@@ -110,7 +110,7 @@ export default class DynamicMetadataFieldDefinition extends Property {
     getPossibleValues(): Array<PossibleValue> {
         return this.#possibleValues;
     }
-    getPossibleValueStrings() {
+    getPossibleValueStrings(): string | string[] {
         if(this.#possibleValues == null) {
             console.log('no possible values')
             return "";

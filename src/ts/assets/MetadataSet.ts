@@ -163,16 +163,13 @@ export default class MetadataSet extends ContainedAsset {
     getDynamicMetadataFieldDefinitionsStdClass() {
         return this.getProperty().dynamicMetadataFieldDefinitions;
     }
-    getDynamicMetadataFieldPossibleValueStrings(name: string) {
+    getDynamicMetadataFieldPossibleValueStrings(name: string): string | Array<string> {
         if (!this.hasDynamicMetadataFieldDefinition(name))
             throw new Error('The definition does not exist ');
 
-        this.#dynamicMetadataFieldDefinitions.forEach(element => {
-            if (element.getName() == name) {
-                return element.getPossibleValueStrings();
-            }
-        });
+        let element = this.#dynamicMetadataFieldDefinitions.find(element => element.getName() == name) 
 
+        return element.getPossibleValueStrings();
     }
     getEndDateFieldHelpText() {
         if (typeof this.getProperty().endDateFieldHelpText != undefined) {
@@ -303,13 +300,13 @@ export default class MetadataSet extends ContainedAsset {
     getTeaserFieldVisibility(): string {
         return this.getProperty().TeaserFieldVisibility;
     }
-    getTitleHelpText(): string {
+    getTitleFieldHelpText(): string {
         return this.getProperty().TitleHelpText;
     }
-    getTitleRequired(): boolean {
+    getTitleFieldRequired(): boolean {
         return this.getProperty().TitleRequired;
     }
-    getTitleVisibility(): string {
+    getTitleFieldVisibility(): string {
         return this.getProperty().TitleVisibility;
     }
     hasDynamicMetadataFieldDefinition(name: string): boolean {

@@ -29,11 +29,23 @@ export default class DynamicField extends Property {
             }
         }
     }
-    getFieldValue(): Property {
+    getFieldValue(): FieldValue {
         if (typeof this.#fieldValues == undefined) {
             console.log("null field value");
         }
         return this.#fieldValues;
+    }
+
+    getName(): string {
+        return this.#name;
+    }
+
+    setValue(values: Array<any>): Property {
+        if (!Array.isArray(values)) {
+            values = new Array(values);
+        }
+        this.#fieldValues.setValues(values);
+        return this;
     }
 
     toObject() {
