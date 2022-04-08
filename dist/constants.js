@@ -497,4 +497,17 @@ export const parentTypeMap = {
     [TYPES.XMLBLOCK]: TYPES.FOLDER,
     [TYPES.XSLTFORMAT]: TYPES.FOLDER
 };
+export class VisibilityValues {
+    static isVisibility(value) {
+        return value == TYPES.VISIBLE || value == TYPES.INLINE || value == TYPES.FOLDERCONTROLLED;
+    }
+}
+export class BooleanValues {
+    static isBoolean(value) {
+        return value === true || value === false;
+    }
+    static isBool(value) {
+        return value === true || value === false;
+    }
+}
 //# sourceMappingURL=constants.js.map

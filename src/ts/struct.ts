@@ -1,6 +1,3 @@
-import pathClass from "./properties/Path.js";
-import * as c from "./constants.js";
-
 export interface path {
     path: string;
     siteId?: string;
@@ -34,6 +31,23 @@ export interface dynamicMetadataFieldDefinition {
     visibility: string;
     possibleValues: Array<string>;
     helpText: string;
+}
+
+export interface dataDefinitionPage {
+    name: string,
+    siteName: string,
+    parentFolderPath: string,
+    xhtml: string | null,
+    contentTypeId: string
+}
+
+export interface xhtmlPage {
+    name: string,
+    siteName: string,
+    parentFolderPath: string,
+    xhtml: string,
+    contentTypeId: string
+    contentTypePath: string
 }
 
 export interface metadata {

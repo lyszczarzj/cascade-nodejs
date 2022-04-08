@@ -1,10 +1,12 @@
-import Asset from "../assets/Asset.js"
-import MetadataSet from "../assets/MetadataSet.js"
-import RequestService from "../RequestService.js"
-import DynamicField from "./DynamicField.js"
-import Property from "./Property.js"
-import * as c from "../constants.js"
-import PossibleValue from "./PossibleValue.js"
+// import Asset from "../assets/Asset.js"
+// import MetadataSet from "../assets/MetadataSet.js"
+// import RequestService from "../RequestService.js"
+// import DynamicField from "./DynamicField.js"
+// import Property from "./Property.js"
+// import * as c from "../constants.js"
+// import PossibleValue from "./PossibleValue.js"
+
+import {Property, RequestService, Asset, MetadataSet, DynamicField, c} from "../internal.js"
 
 export default class Metadata extends Property {
     #author: string
@@ -313,7 +315,7 @@ export default class Metadata extends Property {
 
         return obj;
     }
-    setDynamicFieldValue(field: string, values: any = null): Property {
+    setDynamicFieldValue(field: string, values: Array<string>|null|string = null): Property {
         if (values == '') {
             values = null;
         }

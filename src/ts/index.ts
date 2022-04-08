@@ -1,21 +1,26 @@
 #! /usr/bin/env node
 'use strict'
-import './assets/factory.js';
-import Factory from './assets/factory.js';
-import fetch from 'node-fetch';
-import * as Struc from './struct.js';
-import * as c from './constants.js';
-import Asset from './assets/Asset.js';
-import Page from './assets/Page.js';
-import RequestService from './RequestService.js';
-import Auth from './auth.js';
+import Cascade from "./assets/Cascade.js"
+// import Factory from './assets/factory.js';
+// import * as Struc from './struct.js';
+// import * as c from './constants.js';
+// import Asset from './assets/Asset.js';
+// import Page from './assets/Page.js';
+// import RequestService from './RequestService.js';
+// import Auth from './auth.js';
 
-
+import {RequestService, Auth, Factory} from "./internal.js"
 
 
 console.log('running');
 //import dotenv from 'dotenv'
 //console.log(c.TYPES.PAGE);
+
+//const main = new Cascade( new RequestService( 'https://grayson.cascadecms.com/api/v1/', Auth.getInstance() ))
+
+//testAsset = Asset.getAsset(new RequestService('https://grayson.cascadecms.com/api/v1/', Auth.getInstance()), 'page', "test-page", "grayson.edu")
+
+//var testAsset = main.getPage('test-page', 'grayson.edu')
 
 var testAsset = Factory.getAsset( new RequestService( 'https://grayson.cascadecms.com/api/v1/', Auth.getInstance() ), "page", "test-page", "grayson.edu");
 /*

@@ -1,6 +1,9 @@
-import RequestService from "../RequestService.js";
-import Property from "./Property.js";
-import FieldValue from "./FieldValue.js"
+// import RequestService from "../RequestService.js";
+// import Property from "./Property.js";
+// import FieldValue from "./FieldValue.js"
+
+import {Property, RequestService, FieldValue} from "../internal.js"
+
 
 export default class DynamicField extends Property {
     #name: string

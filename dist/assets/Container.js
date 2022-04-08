@@ -10,8 +10,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _Container_children, _Container_containerChildrenIds;
-import ContainedAsset from "./ContainedAsset.js";
-import Child from "../properties/Child.js";
+import { ContainedAsset, Child } from "../internal.js";
 export default class Container extends ContainedAsset {
     constructor(service, id) {
         super(service, id);

@@ -1,1 +1,1 @@
-{"version":3,"file":"Identifier.js","sourceRoot":"","sources":["../../src/ts/properties/Identifier.ts"],"names":[],"mappings":"AAGA,OAAO,KAAK,MAAM,YAAY,CAAC;AAE/B,MAAM,CAAC,OAAO,OAAO,UAAW,SAAQ,KAAK;CAE5C"}
+{"version":3,"file":"Identifier.js","sourceRoot":"","sources":["../../src/ts/properties/Identifier.ts"],"names":[],"mappings":"AAIA,OAAO,EAAC,KAAK,EAAC,MAAM,gBAAgB,CAAA;AAEpC,MAAM,CAAC,OAAO,OAAO,UAAW,SAAQ,KAAK;CAE5C"}

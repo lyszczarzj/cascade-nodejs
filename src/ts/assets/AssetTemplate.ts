@@ -1,5 +1,4 @@
-import * as Struct from "../struct.js";
-import * as c from "../constants.js";
+import {Struct, c} from "../internal.js"
 
 export default class AssetTemplate {
     static getDynamicMetadataFieldDefinition(): any {
@@ -15,6 +14,39 @@ export default class AssetTemplate {
         let asset: any = {};
         asset['dynamicMetadataFieldDefinition'] = dmfd;
         return asset;
+    }
+
+    static getDataDefinitionPage(): any {
+        const page: Struct.dataDefinitionPage = {
+            name: "",
+            siteName: "",
+            parentFolderPath: "",
+            xhtml: null,
+            contentTypeId: ""
+        }
+
+        const asset = {
+            page: page
+        }
+
+        return asset
+    }
+
+    static getXhtmlPage(): any {
+        const page: Struct.xhtmlPage = {
+            name: "",
+            siteName: "",
+            parentFolderPath: "",
+            xhtml: "",
+            contentTypeId: "",
+            contentTypePath: ""
+        }
+
+        const asset = {
+            page: page
+        }
+
+        return asset
     }
 
     static getMetadata(): any {

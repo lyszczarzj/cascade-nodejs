@@ -1,9 +1,13 @@
-import RequestService from "../RequestService.js";
-import * as Struct from "../struct.js";
-import Asset from "./asset.js";
-import Container from "./Container.js";
-import * as c from "../constants.js";
-import Factory from "./Factory.js";
+
+// import './factory.js';
+// import Factory from "./factory.js";
+// import Asset from "./asset.js";
+// import RequestService from "../RequestService.js";
+// import * as Struct from "../struct.js";
+// import Container from "./Container.js";
+// import * as c from "../constants.js";
+
+import {RequestService, Asset, Factory, Struct, c, Container} from "../internal.js"
 
 export default class ContainedAsset extends Asset {
     constructor(service: RequestService, identifier: Struct.Identifier) {

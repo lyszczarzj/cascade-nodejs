@@ -1,11 +1,13 @@
-import FolderContainedAsset from "./FolderContainedAsset.js";
-import RequestService from "../RequestService.js";
-import * as Struct from "../struct.js";
-import * as c from "../constants.js";
-import Page from "./Page.js";
-import MetadataSet from "./MetadataSet.js";
-import Asset from "./Asset.js";
+// import FolderContainedAsset from "./FolderContainedAsset.js";
+// import RequestService from "../RequestService.js";
+// import * as Struct from "../struct.js";
+// import * as c from "../constants.js";
+// import Page from "./Page.js";
+// import MetadataSet from "./MetadataSet.js";
+// import Asset from "./Asset.js";
+// import Linkable from "./Linkable.js";
 
+import {FolderContainedAsset, MetadataSet, Page, Asset, RequestService, Struct} from '../internal.js'
 
 export default class DublinAwareAsset extends FolderContainedAsset {
     #metadataSet: MetadataSet
@@ -31,10 +33,18 @@ export default class DublinAwareAsset extends FolderContainedAsset {
     getReviewEvery(): number {
         return this.getProperty().reviewEvery;
     }
-    updateMetadata(params: Array<any>, commit:boolean = true) {
-        DublinAwareAsset.staticUpdateMetadata(this, params, commit);
-        return this;
-    }
+    // update(params: Array<any>): Asset {
+    //     DublinAwareAsset.staticUpdateMetadata(this, params);
+    //     DublinAwareAsset.staticUpdateData(this, params);
+    //     return this;
+    // } 
+    // updateMetadata(params: Array<any>, commit:boolean = true) {
+    //     DublinAwareAsset.staticUpdateMetadata(this, params, commit);
+    //     return this;
+    // }
+    // static staticUpdateMetadata(a: Linkable, params: any, commit: boolean = true) {
+    //     let metadata = a.getMetadata();
+    // }
 
     //more code
 }

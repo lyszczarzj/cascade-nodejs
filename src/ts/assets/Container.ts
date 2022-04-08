@@ -1,8 +1,10 @@
-import RequestService from "../RequestService.js";
-import ContainedAsset from "./ContainedAsset.js";
-import * as Struct from "../struct.js"
-import Asset from "./Asset.js";
-import Child from "../properties/Child.js";
+// import RequestService from "../RequestService.js";
+// import ContainedAsset from "./ContainedAsset.js";
+// import * as Struct from "../struct.js"
+// import Asset from "./Asset.js";
+// import Child from "../properties/Child.js";
+
+import {RequestService, ContainedAsset, Struct, Asset, Child} from "../internal.js"
 
 export default class Container extends ContainedAsset {
     #children: Array<Child>;

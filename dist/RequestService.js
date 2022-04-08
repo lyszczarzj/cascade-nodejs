@@ -20,7 +20,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 };
 var _RequestService_types, _RequestService_properties, _RequestService_url, _RequestService_auth, _RequestService_message, _RequestService_success, _RequestService_reply, _RequestService_audits, _RequestService_commands;
 import fetch from 'node-fetch';
-import * as c from "./constants.js";
+import { c } from "./internal.js";
 export default class RequestService {
     constructor(url, auth, context = null) {
         _RequestService_types.set(this, void 0);
@@ -84,7 +84,7 @@ export default class RequestService {
         __classPrivateFieldSet(this, _RequestService_url, url, "f");
         __classPrivateFieldSet(this, _RequestService_auth, auth, "f");
         __classPrivateFieldSet(this, _RequestService_message, "", "f");
-        __classPrivateFieldSet(this, _RequestService_success, "", "f");
+        __classPrivateFieldSet(this, _RequestService_success, null, "f");
         __classPrivateFieldSet(this, _RequestService_reply, "", "f");
         __classPrivateFieldSet(this, _RequestService_commands, [], "f");
     }
@@ -102,16 +102,19 @@ export default class RequestService {
             console.log(params);
             var response = yield fetch(command, options);
             var json = yield response.json();
+            console.log(json);
             return json;
         });
     }
     retrieve(id) {
         return __awaiter(this, void 0, void 0, function* () {
             var property = c.propertyTypeMap[id.type];
+            console.log('preparing to send read request');
             var asset = yield this.read(id);
+            console.log(asset);
             if (typeof __classPrivateFieldGet(this, _RequestService_reply, "f").asset != undefined) {
                 console.log(__classPrivateFieldGet(this, _RequestService_reply, "f").asset);
-                return __classPrivateFieldGet(this, _RequestService_reply, "f").asset.property;
+                return __classPrivateFieldGet(this, _RequestService_reply, "f").asset[property];
             }
             return null;
         });
@@ -124,8 +127,20 @@ export default class RequestService {
                 "identifier": id
             };
             __classPrivateFieldSet(this, _RequestService_reply, yield this.apiOperation(command, formatId), "f");
+            console.log(__classPrivateFieldGet(this, _RequestService_reply, "f"));
             __classPrivateFieldSet(this, _RequestService_success, __classPrivateFieldGet(this, _RequestService_reply, "f").success, "f");
             return (_a = __classPrivateFieldGet(this, _RequestService_reply, "f").asset) !== null && _a !== void 0 ? _a : null;
+        });
+    }
+    create(asset) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let command = __classPrivateFieldGet(this, _RequestService_url, "f") + 'create';
+            asset = {
+                asset: asset
+            };
+            __classPrivateFieldSet(this, _RequestService_reply, yield this.apiOperation(command, asset), "f");
+            __classPrivateFieldSet(this, _RequestService_success, __classPrivateFieldGet(this, _RequestService_reply, "f").success, "f");
+            return __classPrivateFieldGet(this, _RequestService_reply, "f");
         });
     }
     isHexString(string) {
@@ -179,6 +194,15 @@ export default class RequestService {
             idString = idString.replace("//", "/");
             return idString;
         }
+    }
+    isSuccessful() {
+        return __classPrivateFieldGet(this, _RequestService_success, "f");
+    }
+    getMessage() {
+        if (__classPrivateFieldGet(this, _RequestService_reply, "f").message != "") {
+            __classPrivateFieldSet(this, _RequestService_message, __classPrivateFieldGet(this, _RequestService_reply, "f").message, "f");
+        }
+        return __classPrivateFieldGet(this, _RequestService_message, "f");
     }
 }
 _RequestService_types = new WeakMap(), _RequestService_properties = new WeakMap(), _RequestService_url = new WeakMap(), _RequestService_auth = new WeakMap(), _RequestService_message = new WeakMap(), _RequestService_success = new WeakMap(), _RequestService_reply = new WeakMap(), _RequestService_audits = new WeakMap(), _RequestService_commands = new WeakMap();

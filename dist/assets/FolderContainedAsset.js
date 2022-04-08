@@ -1,4 +1,4 @@
-import ContainedAsset from "./ContainedAsset.js";
+import { ContainedAsset } from '../internal.js';
 export default class FolderContainedAsset extends ContainedAsset {
     constructor(service, identifier) {
         super(service, identifier);

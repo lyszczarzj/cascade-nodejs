@@ -41,4 +41,4 @@ export default class Auth {
 }
 _a = Auth, _Auth_apiToken = new WeakMap();
 _Auth_instance = { value: void 0 };
-//# sourceMappingURL=auth.js.map
+//# sourceMappingURL=Auth.js.map

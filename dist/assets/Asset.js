@@ -19,7 +19,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _Asset_id, _Asset_path, _Asset_siteName, _Asset_siteId, _Asset_service, _Asset_identifier, _Asset_type, _Asset_propertyName, _Asset_property, _Asset_name, _Asset_json;
-import Factory from "./Factory.js";
+import { Factory } from '../internal.js';
 export default class Asset {
     constructor(service, identifier) {
         _Asset_id.set(this, void 0);
@@ -40,6 +40,7 @@ export default class Asset {
             throw new Error('Identifier is null');
         }
         service.retrieve(identifier).then((property) => {
+            console.log(property);
             if (typeof property !== 'undefined') {
                 if (typeof identifier.id !== 'undefined') {
                     var id = identifier.id;
@@ -120,19 +121,8 @@ export default class Asset {
             return this;
         });
     }
-    update(params) {
-        Asset.staticUpdateData(this, params);
-        return this;
-    }
-    updateData(params) {
-        Asset.staticUpdateData(this, params);
-        return this;
-    }
     static getAsset(service, type, idPath, siteName = null) {
         return Factory.getAsset(service, type, idPath, siteName);
-    }
-    static staticUpdateData(a, params) {
-        return a;
     }
 }
 _Asset_id = new WeakMap(), _Asset_path = new WeakMap(), _Asset_siteName = new WeakMap(), _Asset_siteId = new WeakMap(), _Asset_service = new WeakMap(), _Asset_identifier = new WeakMap(), _Asset_type = new WeakMap(), _Asset_propertyName = new WeakMap(), _Asset_property = new WeakMap(), _Asset_name = new WeakMap(), _Asset_json = new WeakMap();

@@ -1,6 +1,8 @@
-import Property from "./Property.js";
-import * as c from "../constants.js";
-import RequestService from "../RequestService.js";
+// import Property from "./Property.js";
+// import * as c from "../constants.js";
+// import RequestService from "../RequestService.js";
+
+import {Property, c, RequestService} from '../internal.js'
 
 export default class PossibleValue extends Property {
     #label: string

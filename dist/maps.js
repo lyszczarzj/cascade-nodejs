@@ -1,6 +1,4 @@
-import * as c from "./constants.js";
-import Asset from "./assets/Asset.js";
-import Page from "./assets/Page.js";
+import { c, Asset, Page } from "./internal.js";
 export const typeMappingArray = new Map([
     [c.TYPES.ASSETFACTORY, Asset],
     [c.TYPES.ASSETFACTORYCONTAINER, Asset],

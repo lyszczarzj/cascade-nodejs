@@ -1,12 +1,14 @@
-import RequestService from "../RequestService.js";
-import ContainedAsset from "./ContainedAsset.js";
-import * as Struct from "../struct.js";
-import * as c from "../constants.js"
-import Asset from "./Asset.js";
-import AssetTemplate from "./AssetTemplate.js";
-import DynamicMetadataFieldDefinition from "../properties/DynamicMetadataFieldDefinition.js";
-import Property from "../properties/Property.js";
-import Metadata from "../properties/Metadata.js";
+// import RequestService from "../RequestService.js";
+// import ContainedAsset from "./ContainedAsset.js";
+// import * as Struct from "../struct.js";
+// import * as c from "../constants.js"
+// import Asset from "./Asset.js";
+// import AssetTemplate from "./AssetTemplate.js";
+// import DynamicMetadataFieldDefinition from "../properties/DynamicMetadataFieldDefinition.js";
+// import Property from "../properties/Property.js";
+// import Metadata from "../properties/Metadata.js";
+
+import {ContainedAsset, RequestService, Struct, c, Asset, DynamicMetadataFieldDefinition, AssetTemplate, Property, Metadata} from '../internal.js'
 
 export default class MetadataSet extends ContainedAsset {
     static wired: Array<string> = ["author", "description", "displayName", "endDate", "expirationFolder", "keywords", "reviewDate", "startDate", "summary", "teaser", "title"];

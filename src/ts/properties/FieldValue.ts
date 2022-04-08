@@ -1,5 +1,7 @@
-import Property from "./Property.js";
-import RequestService from "../RequestService.js";
+// import Property from "./Property.js";
+// import RequestService from "../RequestService.js";
+
+import {Property, RequestService} from "../internal.js"
 
 export default class FieldValue extends Property {
     #service: RequestService

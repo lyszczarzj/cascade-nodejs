@@ -1,8 +1,9 @@
-import * as c from "../constants.js"
-import Asset from "../assets/Asset.js"
-import Page from "../assets/Page.js"
-import RequestService from "../RequestService.js"
+// import * as c from "../constants.js"
+// import Asset from "../assets/Asset.js"
+// import Page from "../assets/Page.js"
+// import RequestService from "../RequestService.js"
 
+import {Asset, Page, RequestService, c} from '../internal.js'
 
 export default class Factory {
     static #instance?: Factory;
@@ -121,6 +122,7 @@ export default class Factory {
             return new Constructor(service, service.createId(type, idPath, siteName))
            // return new classname(service, service.createId(type, idPath, siteName))
         } catch (e) {
+            console.log(e.message)
             throw new Error(`Null Asset: ${idPath}`)
         }
     }

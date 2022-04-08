@@ -1,9 +1,11 @@
-import Identifier from "./properties/Identifier";
-import * as Struct from "./struct";
+// import Identifier from "./properties/Identifier";
+// import * as Struct from "./struct";
 import fetch from 'node-fetch';
-import * as c from "./constants.js";
-import Auth from "./auth.js";
-import Asset from "./assets/asset.js"
+// import * as c from "./constants.js";
+// import Auth from "./auth.js";
+// import Asset from "./assets/asset.js"
+
+import {Struct, c, Auth} from "./internal.js"
 
 export default class RequestService {
     #types: Array<string>;
@@ -60,7 +62,7 @@ export default class RequestService {
     #url: string;
     #auth: any;
     #message: string;
-    #success: string;
+    #success: boolean;
     #reply: any;
     #audits: string;
     #commands: Array<string>;
@@ -69,7 +71,7 @@ export default class RequestService {
         this.#url = url;
         this.#auth = auth;
         this.#message = "";
-        this.#success = "";
+        this.#success = null;
         this.#reply = "";
         this.#commands = [];
     }
@@ -87,16 +89,19 @@ export default class RequestService {
         console.log(params)
         var response = await fetch(command, options)
         var json = await response.json()
+        console.log(json)
         return json;
     }
 
     async retrieve(id: Struct.Identifier, ) {
         var property = c.propertyTypeMap[id.type];
+        console.log('preparing to send read request')
         var asset = await this.read(id);
+        console.log(asset)
 
         if (typeof this.#reply.asset != undefined) {
             console.log(this.#reply.asset)
-            return this.#reply.asset.property;
+            return this.#reply.asset[property];
         }
         return null;
     }
@@ -110,9 +115,21 @@ export default class RequestService {
         }
 
         this.#reply = await this.apiOperation(command, formatId);
+        console.log(this.#reply)
         this.#success = this.#reply.success;
 
         return this.#reply.asset ?? null;
+    }
+
+    async create(asset: any): Promise<any> {
+        let command = this.#url + 'create';
+
+        asset = {
+            asset: asset
+        }
+        this.#reply = await this.apiOperation(command, asset);
+        this.#success = this.#reply.success;
+        return this.#reply;
     }
 
     isHexString(string: string): boolean {
@@ -174,6 +191,19 @@ export default class RequestService {
             return idString;
         }
     }
+
+    isSuccessful(): boolean {
+        return this.#success
+    }
+
+    getMessage(): string {
+        if (this.#reply.message != "") {
+            this.#message = this.#reply.message;
+        }
+        return this.#message
+    }
+
+
 
 
 }

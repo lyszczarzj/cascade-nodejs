@@ -10,8 +10,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _DynamicField_name, _DynamicField_fieldValues, _DynamicField_service;
-import Property from "./Property.js";
-import FieldValue from "./FieldValue.js";
+import { Property, FieldValue } from "../internal.js";
 export default class DynamicField extends Property {
     constructor(json, service = null, data1 = null, data2 = null, data3 = null) {
         super(json, service, data1, data2, data3);
@@ -39,6 +38,16 @@ export default class DynamicField extends Property {
             console.log("null field value");
         }
         return __classPrivateFieldGet(this, _DynamicField_fieldValues, "f");
+    }
+    getName() {
+        return __classPrivateFieldGet(this, _DynamicField_name, "f");
+    }
+    setValue(values) {
+        if (!Array.isArray(values)) {
+            values = new Array(values);
+        }
+        __classPrivateFieldGet(this, _DynamicField_fieldValues, "f").setValues(values);
+        return this;
     }
     toObject() {
         if (typeof __classPrivateFieldGet(this, _DynamicField_name, "f") == undefined) {

@@ -1,6 +1,4 @@
-import Asset from "./asset.js";
-import * as c from "../constants.js";
-import Factory from "./Factory.js";
+import { Asset, Factory, c } from "../internal.js";
 export default class ContainedAsset extends Asset {
     constructor(service, identifier) {
         super(service, identifier);
@@ -83,4 +81,4 @@ export default class ContainedAsset extends Asset {
         return this.isDescendantOf(container);
     }
 }
-//# sourceMappingURL=ContainedAsset.js.map
+//# sourceMappingURL=containedAsset.js.map

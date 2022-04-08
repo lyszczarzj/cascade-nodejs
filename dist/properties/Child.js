@@ -10,9 +10,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _Child_id, _Child_path, _Child_type, _Child_recycled;
-import Property from "./Property.js";
-import Path from "./Path.js";
-import Factory from "../assets/Factory.js";
+import { Property, Path, Factory } from "../internal.js";
 export default class Child extends Property {
     constructor(json, service = null, data1 = null, data2 = null, data3 = null) {
         super(json, service, data1, data2, data3);

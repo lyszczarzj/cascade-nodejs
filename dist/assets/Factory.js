@@ -1,6 +1,5 @@
 var _a, _Factory_instance;
-import * as c from "../constants.js";
-import Page from "../assets/Page.js";
+import { Page, c } from '../internal.js';
 export default class Factory {
     static getAsset(service, type, idPath, siteName = null) {
         var exists = Object.values(c.TYPES).includes(type);
@@ -15,10 +14,11 @@ export default class Factory {
             return new Constructor(service, service.createId(type, idPath, siteName));
         }
         catch (e) {
+            console.log(e.message);
             throw new Error(`Null Asset: ${idPath}`);
         }
     }
 }
 _a = Factory;
 _Factory_instance = { value: void 0 };
-//# sourceMappingURL=Factory.js.map
+//# sourceMappingURL=factory.js.map

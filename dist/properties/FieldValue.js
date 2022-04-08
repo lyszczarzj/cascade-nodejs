@@ -10,7 +10,7 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 };
 var _FieldValue_service, _FieldValue_values;
-import Property from "./Property.js";
+import { Property } from "../internal.js";
 export default class FieldValue extends Property {
     constructor(fieldValues, service = null, data1 = null, data2 = null, data3 = null) {
         super(fieldValues, service, data1, data2, data3);

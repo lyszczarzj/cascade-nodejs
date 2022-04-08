@@ -1,9 +1,11 @@
-import Property from "./Property.js";
-import Path from "./Path.js"
-import * as Struct from "../struct.js";
-import RequestService from "../RequestService.js";
-import Asset from "../assets/Asset.js";
-import Factory from "../assets/Factory.js";
+// import Property from "./Property.js";
+// import Path from "./Path.js"
+// import * as Struct from "../struct.js";
+// import RequestService from "../RequestService.js";
+// import Asset from "../assets/Asset.js";
+// import Factory from "../assets/Factory.js";
+
+import {Property, Path, Struct, RequestService, Asset, Factory} from "../internal.js"
 
 export default class Child extends Property {
     #id: string

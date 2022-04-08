@@ -1,7 +1,9 @@
-import RequestService from "../RequestService.js";
-import Property from "./Property.js";
-import * as c from "../constants.js";
-import PossibleValue from "./PossibleValue.js";
+// import RequestService from "../RequestService.js";
+// import Property from "./Property.js";
+// import * as c from "../constants.js";
+// import PossibleValue from "./PossibleValue.js";
+
+import {Property, RequestService, c, PossibleValue} from "../internal.js"
 
 export default class DynamicMetadataFieldDefinition extends Property {
     #service: RequestService

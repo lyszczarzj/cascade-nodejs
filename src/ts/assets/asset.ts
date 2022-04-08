@@ -1,11 +1,13 @@
-import * as chalk from "chalk";
-import * as Struct from "../struct.js";
-import RequestService from "../RequestService.js";
-import * as c from "../constants.js";
-import ucwords from "../ucwords.js";
-import Page from "./Page.js";
-import Factory from "./Factory.js";
+// import './factory.js';
+// import Factory from "./factory.js";
+// import * as chalk from "chalk";
+// import * as Struct from "../struct.js";
+// import RequestService from "../RequestService.js";
+// import * as c from "../constants.js";
+// import ucwords from "../ucwords.js";
+// import Page from "./Page.js";
 
+import { RequestService, Struct, Factory } from '../internal.js'
 
 
 export default abstract class Asset {
@@ -32,6 +34,7 @@ export default abstract class Asset {
         }
 
         service.retrieve(identifier).then((property) => {
+            console.log(property)
             if (typeof property !== 'undefined') {
                 if (typeof identifier.id !== 'undefined') {
                     var id = identifier.id;
@@ -128,24 +131,34 @@ export default abstract class Asset {
         return this
     }
 
-    update(params: Map<string, string>) {
-        Asset.staticUpdateData(this, params);
-        return this;
-    }
+    // update(params: Map<string, string>): Asset {
+    //     Asset.staticUpdateData(this, params);
+    //     return this;
+    // }
 
-    updateData(params: Map<string, string>) {
-        Asset.staticUpdateData(this, params)
-        return this;
-    }
+    // updateData(params: Map<string, string>): Asset {
+    //     Asset.staticUpdateData(this, params)
+    //     return this;
+    // }
 
     static getAsset(service: RequestService, type: string, idPath: string, siteName: string = null): Asset {
         return Factory.getAsset(service, type, idPath, siteName)
     }
 
-    static staticUpdateData(a: Asset, params: Map<string, string>): Asset {
-        //figure out what to do with this later
-        return a;
-    }
+    // static staticUpdateData(a: Asset, params: Map<string, string>): Asset {
+    //     //figure out what to do with this later
+    //     for (const [key, value] of params.entries()) {
+    //         if (key == "metadata") {
+    //             continue;
+    //         }
+
+    //         if (value === '')
+
+    //     }
+
+
+    //     return a;
+    // }
 
 
 
